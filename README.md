@@ -56,10 +56,6 @@ Prototype `Files` shape from the Jul 14 eng sync (object list with setid/version
 }
 ```
 
-In production the trigger may be `RefinerCompleteV2/` (or a copy/alias as
-`DIDInput/`). The Lambda drops the first key segment and treats the rest as
-`persistence_id`.
-
 ## SQS body → bucket/key
 
 `Records[0].body` is a JSON **string** of the S3 Object Created event. After
