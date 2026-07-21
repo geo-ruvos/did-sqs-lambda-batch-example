@@ -1,0 +1,5 @@
+.venv/
+local_workspace/
+__pycache__/
+*.pyc
+.DS_Store
