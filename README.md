@@ -15,7 +15,7 @@ S3 PutObject  DIDInput/{YYYY}/{MM}/{DD}/{uuid}
     → SQS (ecr-dev-did-input)
     → DiD Lambda
          → parse Records[0].body → bucket + key
-         → read DIDInput JSON (Files: [{eicr, rr, setid, version}, ...])
+         → read DIDInput JSON (Files: [{eicr, rr, setId, versionNumber}, ...])
          → for each file: read refined docs, write empty DIDOutput copies
          → write DIDComplete/{YYYY}/{MM}/{DD}/{uuid}
 ```
@@ -41,7 +41,7 @@ The `persistence_id` is the key suffix under every pipeline prefix (`DIDInput/`,
 
 ## Batch input (`DIDInput/{YYYY}/{MM}/{DD}/{uuid}`)
 
-Prototype `Files` shape from the Jul 14 eng sync (object list with setid/version):
+Prototype `Files` shape from the Jul 14 eng sync (object list with setId/versionNumber):
 
 ```json
 {
@@ -49,8 +49,8 @@ Prototype `Files` shape from the Jul 14 eng sync (object list with setid/version
     {
       "eicr": "RefinerOutputV2/2026/07/14/19d4812b-.../SDDH/COVID19/refined_eICR.xml",
       "rr": "RefinerOutputV2/2026/07/14/19d4812b-.../SDDH/COVID19/refined_RR.xml",
-      "setid": "001",
-      "version": 2
+      "setId": "001",
+      "versionNumber": 2
     }
   ]
 }
@@ -74,7 +74,7 @@ For each input pair, empty objects under:
 Then one batch signal:
 
 - `DIDComplete/2026/07/14/{uuid}` — `Files` lists processed paths under `DIDOutput/`
-  (same setid/version). Unprocessed entries would keep `RefinerOutputV2/` paths;
+  (same setId/versionNumber). Unprocessed entries would keep `RefinerOutputV2/` paths;
   this stub processes every listed file.
 
 ## Error handling

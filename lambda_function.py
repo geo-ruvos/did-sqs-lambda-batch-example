@@ -43,8 +43,8 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
     for entry in files:
         eicr_key = entry["eicr"]
         rr_key = entry["rr"]
-        setid = entry.get("setid")
-        version = entry.get("version")
+        set_id = entry.get("setId")
+        version_number = entry.get("versionNumber")
 
         # Ensure listed refined docs are readable (real DiD would load + compare).
         _ = read_bytes(bucket, eicr_key)
@@ -61,8 +61,8 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
             {
                 "eicr": out_eicr,
                 "rr": out_rr,
-                "setid": setid,
-                "version": version,
+                "setId": set_id,
+                "versionNumber": version_number,
             }
         )
 

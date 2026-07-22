@@ -3,20 +3,20 @@
     {
       "eicr": "DIDOutput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff/SDDH/COVID19/refined_eICR.xml",
       "rr": "DIDOutput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff/SDDH/COVID19/refined_RR.xml",
-      "setid": "001",
-      "version": 2
+      "setId": "001",
+      "versionNumber": 2
     },
     {
       "eicr": "DIDOutput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff/JURIS2/FLU/refined_eICR.xml",
       "rr": "DIDOutput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff/JURIS2/FLU/refined_RR.xml",
-      "setid": "002",
-      "version": 2
+      "setId": "002",
+      "versionNumber": 2
     },
     {
       "eicr": "DIDOutput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff/SDDH/unrefined_rr/refined_eICR.xml",
       "rr": "DIDOutput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff/SDDH/unrefined_rr/refined_RR.xml",
-      "setid": "003",
-      "version": 2
+      "setId": "003",
+      "versionNumber": 2
     }
   ]
 }
