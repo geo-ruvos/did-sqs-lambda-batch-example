@@ -64,6 +64,10 @@ Prototype `Files` shape from the Jul 14 eng sync (object list with setId/version
 - `detail.bucket.name` → bucket (e.g. `ecr-dev-data-repository`)
 - `detail.object.key` → `DIDInput/2026/07/14/19d4812b-fc1d-471a-8872-6d5edd1714ff`
 
+Use that **same bucket** from the input event for all subsequent S3 gets and puts
+in the invocation (read `DIDInput` / refined docs, write `DIDOutput` /
+`DIDComplete`). Do not hardcode a separate output bucket.
+
 ## Outputs
 
 For each input pair, empty objects under:

@@ -12,10 +12,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote_plus
 
-
-DID_INPUT_PREFIX = "DIDInput/"
-DID_OUTPUT_PREFIX = "DIDOutput/"
-DID_COMPLETE_PREFIX = "DIDComplete/"
+DID_OUTPUT_PREFIX = os.environ.get("DID_OUTPUT_PREFIX", "DIDOutput/")
+DID_COMPLETE_PREFIX = os.environ.get("DID_COMPLETE_PREFIX", "DIDComplete/")
 
 
 class InfraError(Exception):
@@ -29,6 +27,10 @@ def handler(event: dict[str, Any], context: Any = None) -> dict[str, Any]:
       event["Records"][0]["body"]  → JSON string of the S3 Object Created event
       detail.bucket.name           → bucket
       detail.object.key            → e.g. DIDInput/{YYYY}/{MM}/{DD}/{uuid}
+
+    The bucket from the input event is the bucket to use for all S3 get/put
+    operations in this invocation (batch input, refined docs, DIDOutput,
+    DIDComplete).
     """
     bucket, input_key = parse_sqs_s3_event(event)
     persistence_id = persistence_id_from_key(input_key)
